@@ -1,0 +1,14 @@
+shared:
+    image: node:12
+    
+jobs:
+    main:
+        requires: [~commit]
+        annotations:
+            # Set blockedBySameJob to false to allow builds from same job to run concurrently
+            screwdriver.cd/blockedBySameJob: false
+            # Set blockedBySameJobWaitTime to override wait time before running concurrent build
+            # Default wait time is 5 min
+            screwdriver.cd/blockedBySameJobWaitTime: 0
+        steps:
+              - noop: sleep 500
